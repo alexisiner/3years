@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aniversario</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Brush+Script&display=swap');
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+      gap: 20px; /* Espaciado entre las columnas */
+    }
+
+    .column {
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    }
+    body {
+      background-color: #ea5452;
+      font-family: 'Brush Script', cursive;
+      text-align: center;
+      margin: 50px;
+      color: white; /* Cambiar el color del texto a blanco */
+      opacity: 0;
+      animation: fadeIn 3s forwards;
+    }
+    #contador {
+      font-size: 24px;
+      margin-top: 20px;
+      color: white; /* Cambiar el color del texto a blanco */
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    .imagen-responsive {
+    max-width: 100%;
+    height: auto;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>28 de noviembre de 2020</h1>
+  <div id="contador"></div>
+  <div><img src="images/collage.png" class="imagen-responsive" alt="Foto 1"></div>
+
+  <div class="container">
+    <div class="column">
+      <!-- Contenido de la primera columna -->
+      <h2>Mi Amor</h2>
+      <p> 
+        Aunque celebramos 3 años sabemos que nuestra historia comenzó el 28 de Noviembre, me da mucho sentimiento ver por todo lo que tuvimos que pasar para estar aqui, el camino no ha sido nada facil, hubo momentos en el que el panorama no pintaba nada bien, nuestro futuro era insierto, ambos con muchas dudas pero las ganas de seguir juntos era lo que nos unia y solo con eso nos fue mas que suficiente para resistir. Hoy que estamos en nuetro mejor momento, vemos el pasado de cierta manera rara, o bueno desde mi punto de vista, cometimos muchos errores que ahora nos parecen muy tontos, pero sin embargo todos esos errores nos llevaron hasta este dia. 
+        <br>
+        A lo largo de estos tres años, has sido mi fuente constante de alegría y apoyo. Tu amor ha iluminado mis días, y cada momento contigo ha sido un regalo precioso. Hemos crecido juntos, aprendido el uno del otro y hemos creado un vínculo que solo se fortalece con el tiempo.
+        <br>
+        Agradezco cada risa compartida, cada abrazo reconfortante y cada sueño que hemos perseguido juntos. Eres mi compañera de vida, mi confidente y mi mayor inspiración.
+        <br>
+    </p>
+    </div>
+    <div class="column">
+        <div><img src="images/hellokitty.gif" class="imagen-responsive" alt="Foto 1"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="column">
+        <div><img src="images/63903d9f34f02388fff5d0c7dd6e5085.gif" class="imagen-responsive" alt="Foto 1"></div>
+    </div>
+    <div class="column">
+
+      <p> 
+        Me llena de orgullo estar con una persona como tu, no sabes lo muchisimo que te admino,no hay palabra mas adecuada que increible, te he visto crecer y se que siempre te lo digo pero es que neta no dejas de sorprenderme, eres una mujer super talentosa, apasionada, humilde, comprometida y noble. Eres la mujer de mis sueño, con la que soñaba cada dia.
+        <br>
+        Creo que nunca te lo dije (correccion, apenas que peleamos te lo dije jajaj) pero eres mi relaccion justo como la soñe, a mi no me gusta andar de aqui pa lla viendo que pescaba, mi ilucion siempre conocer a alguien casi por accidente, justo como nos paso, nuestra conexion fue muy natural, conectamos al instante y la verdad  que no tengo otra explicacion mas que dios te mando para mi y eso  hace muy especial nuestra relacion.
+        <br>
+        No tienes la mas minima idea de lo importante que eres en mi vida, te juro por mi vida que procuraré cuidarte y amarte por el resto de mi vida, no estoy jugando, asi de seguro estoy de mi amor por ti y solo el tiempo me dará la razón.
+        <br>
+        Me emociona nuestro futuro, se que aún nos esperan muchos más momentos increíbles, ansio mucho el dia en que vivamos juntos, luchando contra el mundo, somos un equipo❤️
+        <br>
+        Perdon por mis actitudes y acciones feas, me conozco pero talvez no tan bien como tú, y se que puedo ser muy pesado, tengo muchos defectos, soy grosero irrespetuso, enojón, llorón tambien y en pocas palabras un mal novio, se que mereces más de lo que puedo ofrecerte pero quiero que sepas que mi amor en sincero y que haré todo lo posibe para que te quedes conmigo, te agradezco por aguantarme y amarme tal y como soy, me siento muy especial cuando estoy a tu lado, racias por ser mi amor, mi mejor amiga y mi apoyo incondicional, por concentirme, mimarme y aceptarme tal cual. Estos tres años son solo el comienzo de nuestra hermosa historia.
+        <br>
+        Te amo más de lo que las palabras pueden expresar y doy gracias a dios  por cada día a tu lado.
+        <br>
+        Con mucho mucho mucho amor, tu novio emoso precioso ❤️
+    </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
+
+
+<script>
+    const fechaReferencia = new Date('2020-11-28T00:00:00Z');
+
+    function actualizarContador() {
+      const fechaActual = new Date();
+      const diferencia = fechaActual - fechaReferencia;
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24)) - 1;
+      const horas = fechaActual.getHours();
+      const minutos = fechaActual.getMinutes();
+      const segundos = fechaActual.getSeconds();
+
+      const contadorFormatted = `${dias} días : ${horas} horas : ${minutos} minutos : ${segundos} segundos`;
+      document.getElementById('contador').innerHTML = `<p>${contadorFormatted}</p>`;
+    }
+
+    setInterval(actualizarContador, 1000);
+    actualizarContador();
+  </script>

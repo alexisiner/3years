@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+  <style>
+    body {
+      background-color: #000;
+      overflow: hidden;
+      color: #ea5452;
+      font-family: 'Times New Roman', serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .heart-container {
+      position: relative;
+    }
+    .heart {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      transition: all 5s ease-out; /* Haciendo la animación más lenta */
+      z-index: 1; /* Colocando el corazón detrás del texto */
+      filter: drop-shadow(0 0 10px #ea5452); /* Sombra suave alrededor del corazón */
+    }
+    .heart:before,
+    .heart:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 52px;
+      height: 80px;
+      background-color: #ea5452;
+      border-radius: 50px 50px 0 0;
+      filter: drop-shadow(0 0 10px #ea5452); /* Sombra suave alrededor de las figuras */
+    }
+    .heart:before {
+      left: 50px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+    .heart:after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+    .text {
+      position: absolute;
+      top: 30%; /* Ajustar la posición del texto dentro del corazón */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 9px; /* Ajustar el tamaño del texto */
+      font-family: monospace;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+      z-index: 2; /* Asegura que el texto esté sobre las figuras */
+      transition: opacity s ease-out, font-size 5s ease-out; /* Animaciones más lentas */
+    }
+    .heart.expanded {
+      transform: scale(60); /* Se expande hasta 60 veces más grande */
+    }
+    .heart.start {
+      transform: scale(3); /* Tamaño inicial triplicado */
+    }
+    .text.fade-out {
+      opacity: 0;
+      font-size: 1px; /* Reduce el tamaño a la mitad */
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Fondo difuminado negro */
+      z-index: -1; /* Coloca el fondo detrás de todo */
+    }
+
+    .foto {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+  <div class="heart-container">
+    <div class="heart start" onclick="expandHeart()">
+      <div class="text"><img src="images/ea5452-removebg-preview.png" class="foto" alt="Foto 1"></div>
+    </div>
+  </div>
+  <script>
+    function expandHeart() {
+      var heart = $('.heart');
+      var text = $('.text');
+
+      heart.toggleClass('expanded');
+      heart.toggleClass('start');
+      text.toggleClass('fade-out');
+
+      // Al finalizar la animación, redirige a la página "pag2.html"
+      setTimeout(function () {
+        window.location.href = 'pag2.html';
+      }, 1000); // Ajusta el tiempo según la duración de la animación
+    }
+  </script>
+</body>
+</html>
